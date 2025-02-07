@@ -5,13 +5,20 @@ def findSmallest(arr):
         if arr[i] < smallest:
             smallest_index = i
             smallest = arr[i]            
-    return smallest_index
+    return smallest_index, smallest
 
 def selectionSort(arr):
-    newArr = []   
-    for i in range(len(arr)):
-        smallest_index = findSmallest(arr)
-        newArr.append(arr.pop(smallest_index))
+    newArr = []
+    sortArr = arr[:]
+    for i in range(len(sortArr)):
+        smallest_index, _ = findSmallest(sortArr)
+        newArr.append(sortArr.pop(smallest_index))
     return newArr
 
-print(selectionSort([5, 3, 6, 2, 10]))
+def printSmallestSort(data):
+    index, smallest_value = findSmallest(data)
+    sort_value = selectionSort(data)
+    print(f"Smaller element index is {index}. Smaller element is {smallest_value}. Sorting is {sort_value}")
+
+data = [4, 2, 7, 1, 5]
+printSmallestSort(data)
