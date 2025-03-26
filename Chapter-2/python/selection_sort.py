@@ -4,8 +4,9 @@ def findSmallest(arr):
     for i in range(1, len(arr)):
         if arr[i] < smallest:
             smallest_index = i
-            smallest = arr[i]            
+            smallest = arr[i]
     return smallest_index, smallest
+
 
 def selectionSort(arr):
     newArr = []
@@ -15,10 +16,16 @@ def selectionSort(arr):
         newArr.append(sortArr.pop(smallest_index))
     return newArr
 
+
 def printSmallestSort(data):
     index, smallest_value = findSmallest(data)
     sort_value = selectionSort(data)
-    print(f"Smaller element index is {index}. Smaller element is {smallest_value}. Sorting is {sort_value}")
+    print(
+        f"Smaller element index is {index}. "
+        f"Smaller element is {smallest_value}. "
+        f"Sorting is {sort_value}"
+    )
+
 
 data = [4, 2, 7, 1, 5]
 printSmallestSort(data)
